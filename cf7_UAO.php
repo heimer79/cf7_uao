@@ -327,7 +327,7 @@ include(cf7UAO_RUTA.'/includes/opciones.php');
 
      if ($tag->has_option('placeholder') || $tag->has_option('watermark')) {
         $atts['placeholder'] = $value;
-        $value = '';
+        $value = 'Ciudad';
     }
      $atts['name'] = $tag->name;
      $atts = wpcf7_format_atts( $atts );
@@ -345,7 +345,13 @@ include(cf7UAO_RUTA.'/includes/opciones.php');
    ', $atts );
      return $html;}else{
          // para WP
-        $html = sprintf( '<span class="wpcf7-form-control-wrap"><input type="text" list="ciudad-list" %s /> <datalist id="ciudad-list" ></datalist></span>', $atts );
+         $theme = wp_get_theme();
+         if('UAO Theme' == $theme->name || 'UAO Theme' == $theme->parent_theme){
+            $html = sprintf( '<span class="wpcf7-form-control-wrap"><input type="text" placeholder="" list="ciudad-list" %s /> <datalist id="ciudad-list" ></datalist></span>', $atts );
+         }else{
+            $html = sprintf( '<span class="wpcf7-form-control-wrap"><input type="text" placeholder="Ciudad" list="ciudad-list" %s /> <datalist id="ciudad-list" ></datalist></span>', $atts );
+
+         }
         return $html;
      }
 
