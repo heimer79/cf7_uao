@@ -22,3 +22,6 @@ node_modules/
 *.sql
 *.sqlite
 plugin_CF7UAO.code-workspace
+
+
+.DS_Store
